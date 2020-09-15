@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+// Route to your game list. Kind of the homepage:
+Route::get('games', 'GameItemsController@index')->name('games');
+
+// Route to the page of a game:
+Route::get('games/{id}', 'GameItemsController@show')->name('games.show');
+
+// Route to a page where you can add a game to the database:
+Route::get('games/create', 'GameItemsController@create')->name('games.create');
